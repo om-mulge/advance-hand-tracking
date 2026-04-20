@@ -12,6 +12,57 @@
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 
     <style>
+        /* ===== SIGNATURE ANIMATION ===== */
+.signature {
+    margin-top: 40px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Name glow */
+.signature .name {
+    font-weight: 600;
+    background: linear-gradient(90deg, #00ffcc, #00aaff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glowText 2.5s ease-in-out infinite alternate;
+}
+
+/* Heart beat */
+.signature .heart {
+    color: #ff4d6d;
+    animation: pulse 1.2s infinite;
+}
+
+/* Animations */
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px rgba(0,255,204,0.3); }
+    100% { text-shadow: 0 0 15px rgba(0,255,204,0.8),
+                       0 0 25px rgba(0,170,255,0.6); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
         :root {
             --bg-color: #050510;
             --text-color: #ffffff;
@@ -183,6 +234,11 @@
         <h1 style="margin-bottom: 20px; font-weight: 300; letter-spacing: 4px;">NEON AURA AR</h1>
         <p style="margin-bottom: 40px; color: #888;">Grant camera permissions and click to start audio/visual experience</p>
         <button class="start-btn" id="startBtn">Enter Experience</button>
+        <p class="signature">
+  <span>Designed & Developed with</span>
+  <span class="heart">♥</span>
+  <span class="name">By Om Mulge</span>
+</p>
     </div>
 
     <div class="video-container">
